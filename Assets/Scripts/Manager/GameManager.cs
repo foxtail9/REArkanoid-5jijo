@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _paddle2;
     [SerializeField] private GameObject _brick;
     [SerializeField] private GameObject _ball;
+    [SerializeField] private GameObject _wall;
+    [SerializeField] private GameObject _deadline;
 
     [SerializeField] private Text Life;
     [SerializeField] private Text Score;
@@ -31,10 +33,13 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Instantiate(_paddle1);
-        Instantiate(_ball);
+        Instantiate(_wall);
+        Instantiate(_deadline);
 
         Instantiate(_brick);
+
+        Instantiate(_paddle1);
+        Instantiate(_ball);
     }
 
     // Update is called once per frame
