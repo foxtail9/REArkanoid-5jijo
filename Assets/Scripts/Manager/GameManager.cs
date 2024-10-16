@@ -42,7 +42,6 @@ public class GameManager : MonoBehaviour
     {
         if (IsClear())
         {
-            Debug.Log("Game Clear");
             Time.timeScale = 0.0f;
         }
     }
@@ -63,7 +62,6 @@ public class GameManager : MonoBehaviour
     {
         this._score += score;
         Score.text = _score.ToString();
-        IsClear();
     }
 
     public void LostLife()
@@ -80,4 +78,5 @@ public class GameManager : MonoBehaviour
             Instantiate(_ball);
         }
     }
+
 }
