@@ -8,11 +8,6 @@ public class Ball : MonoBehaviour
     private Vector2 ballPos = Vector2.zero;
     private float speed = 5f;
 
-    private void Awake()
-    {
-        _rigidbody = GetComponent<Rigidbody2D>();
-    }
-
     private void Start()
     {
         ballDirection = Vector2.up.normalized;
