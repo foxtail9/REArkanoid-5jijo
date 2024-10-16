@@ -7,7 +7,7 @@ public class Ball : MonoBehaviour
     [SerializeField] private Rigidbody2D myRigid;
 
     private Vector2 ballDirection;
-    private float speed = 5f;
+    [SerializeField] private float speed = 5f;
 
     private void Awake()
     {
@@ -34,15 +34,24 @@ public class Ball : MonoBehaviour
             {
                 brickControl.DestroyBrick();
             }
+
+            ballDirection = Vector2.Reflect(ballDirection, collision.contacts[0].normal);
         }
 
         if (collision.gameObject.CompareTag("wall"))
         {
             ballDirection = Vector2.Reflect(ballDirection, collision.contacts[0].normal);
+            return;
         }
-        else
-        {
 
+        if (collision.gameObject.CompareTag("player"))
+        {
+            float hitPoint = collision.contacts[0].point.x;
+            float paddleCenter = collision.transform.position.x;
+
+            float angle = (hitPoint - paddleCenter) * 2f;
+
+            ballDirection = new Vector2(Mathf.Sin(angle), Mathf.Cos(angle)).normalized;
         }
     }
 }
