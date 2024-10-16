@@ -712,19 +712,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66f064c8b9c85f24599fb3708fcd3158, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
   _paddle: {fileID: 0}
   _brick: {fileID: 0}
   _ball: {fileID: 0}
   GameOverPanel: {fileID: 0}
-=======
-  _paddle1: {fileID: 555509442594482059, guid: f041396f88a012249b65921fe1ba70b7, type: 3}
-  _paddle2: {fileID: 5901249024068218289, guid: e92a4ac374a45644abf884deb0148830, type: 3}
-  _brick: {fileID: 8138846113530038186, guid: b4fcf8d09dad91344ac7669e0d35e568, type: 3}
-  _ball: {fileID: 8901179162933220734, guid: 180f3cde0044f004f9dbd53a8cc00455, type: 3}
-  Life: {fileID: 919517281}
-  Score: {fileID: 1156610283}
->>>>>>> JuSung
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
