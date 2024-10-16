@@ -19,9 +19,9 @@ public class Ball : MonoBehaviour
         ballDirection = Vector2.up.normalized;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        transform.position += new Vector3(ballDirection.x, ballDirection.y, 0) * speed * Time.deltaTime;
+        myRigid.velocity = ballDirection * speed;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -36,11 +36,13 @@ public class Ball : MonoBehaviour
             }
 
             ballDirection = Vector2.Reflect(ballDirection, collision.contacts[0].normal);
+            myRigid.velocity = ballDirection * speed;
         }
 
         if (collision.gameObject.CompareTag("wall"))
         {
             ballDirection = Vector2.Reflect(ballDirection, collision.contacts[0].normal);
+            myRigid.velocity = ballDirection * speed;
             return;
         }
 
@@ -52,6 +54,7 @@ public class Ball : MonoBehaviour
             float angle = (hitPoint - paddleCenter) * 2f;
 
             ballDirection = new Vector2(Mathf.Sin(angle), Mathf.Cos(angle)).normalized;
+            myRigid.velocity = ballDirection * speed;
         }
     }
 }
