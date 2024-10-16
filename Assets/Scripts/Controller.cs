@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class PlayerEventManager : MonoBehaviour
+public class Controller : MonoBehaviour
 {
     public event Action<Vector2> OnMoveEvent;
 
