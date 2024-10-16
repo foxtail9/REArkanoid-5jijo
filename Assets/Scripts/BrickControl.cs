@@ -6,6 +6,6 @@ public class BrickControl : MonoBehaviour
     {
         Destroy(gameObject);
         // 벽돌에 붙어있는 스크립트
-        // 공과 충돌하면 해당 메서드가 실행됨
+        // 점수 추가 로직 추가 구현 가능
     }
 }

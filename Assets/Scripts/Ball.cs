@@ -12,4 +12,17 @@ public class Ball : MonoBehaviour
     {
         //transform.position += dire
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            BrickControl brickControl = collision.gameObject.GetComponent<BrickControl>();
+
+            if (brickControl != null)
+            {
+                brickControl.DestroyBrick();
+            }
+        }
+    }
 }
