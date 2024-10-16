@@ -10,7 +10,7 @@ public class Ball : MonoBehaviour
 
     private void Start()
     {
-        ballDirection = Vector2.up.normalized;
+        ballDirection = Vector2.down.normalized;
     }
 
     private void Awake()
@@ -20,7 +20,7 @@ public class Ball : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _rigidbody.velocity = ballDirection * speed;
+        _rigidbody.velocity = ballDirection.normalized * speed;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -33,7 +33,7 @@ public class Ball : MonoBehaviour
                 float hitPoint = collision.contacts[0].point.x;
                 float paddleCenter = collision.transform.position.x;
                 float angle = (hitPoint - paddleCenter) * 2f;
-                ballDirection = new Vector2(Mathf.Sin(angle), Mathf.Cos(angle)).normalized;
+                ballDirection = new Vector2(Mathf.Sin(angle), Mathf.Cos(angle));
             }
             else
             {
