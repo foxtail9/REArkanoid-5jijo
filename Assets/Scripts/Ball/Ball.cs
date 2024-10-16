@@ -33,16 +33,13 @@ public class Ball : MonoBehaviour
             if (brickControl != null)
             {
                 brickControl.DestroyBrick();
+                SetDirection(collision);
             }
-
-            ballDirection = Vector2.Reflect(ballDirection, collision.contacts[0].normal);
-            myRigid.velocity = ballDirection * speed;
         }
 
         if (collision.gameObject.CompareTag("wall"))
         {
-            ballDirection = Vector2.Reflect(ballDirection, collision.contacts[0].normal);
-            myRigid.velocity = ballDirection * speed;
+            SetDirection(collision);
             return;
         }
 
@@ -53,8 +50,13 @@ public class Ball : MonoBehaviour
 
             float angle = (hitPoint - paddleCenter) * 2f;
 
-            ballDirection = new Vector2(Mathf.Sin(angle), Mathf.Cos(angle)).normalized;
-            myRigid.velocity = ballDirection * speed;
+            SetDirection(collision);
         }
+    }
+
+    private void SetDirection(Collision2D collision)
+    {
+        ballDirection = Vector2.Reflect(ballDirection, collision.contacts[0].normal);
+        myRigid.velocity = ballDirection * speed;
     }
 }
