@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    Rigidbody2D _rigidbody;
+    [SerializeField] private Rigidbody2D _rigidbody;
 
     private Vector2 ballDirection;
     private Vector2 ballPos = Vector2.zero;
@@ -11,6 +11,11 @@ public class Ball : MonoBehaviour
     private void Start()
     {
         ballDirection = Vector2.up.normalized;
+    }
+
+    private void Awake()
+    {
+        _rigidbody = GetComponent<Rigidbody2D>();
     }
 
     private void FixedUpdate()

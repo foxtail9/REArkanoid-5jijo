@@ -36,8 +36,6 @@ public class GameManager : MonoBehaviour
         Instantiate(_wall);
         Instantiate(_deadline);
 
-        Instantiate(_brick);
-
         Instantiate(_paddle1);
         Instantiate(_ball);
     }
