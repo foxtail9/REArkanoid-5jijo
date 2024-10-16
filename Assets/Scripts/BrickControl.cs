@@ -2,12 +2,10 @@ using UnityEngine;
 
 public class BrickControl : MonoBehaviour
 {
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void DestroyBrick()
     {
-        if (collision.gameObject.CompareTag("Ball"))
-        {
-            // 점수 추가 로직
-            Destroy(gameObject);
-        }
+        Destroy(gameObject);
+        // 벽돌에 붙어있는 스크립트
+        // 공과 충돌하면 해당 메서드가 실행됨
     }
 }
