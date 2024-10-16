@@ -1,18 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    [SerializeField] private Rigidbody2D myRigid;
-
     private Vector2 ballDirection;
-    [SerializeField] private float speed = 5f;
-
-    private void Awake()
-    {
-        myRigid = GetComponent<Rigidbody2D>();
-    }
+    private Vector2 ballPos = Vector2.zero;
+    private float speed = 5f;
 
     private void Start()
     {
@@ -26,19 +18,29 @@ public class Ball : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("brick"))
+        Debug.Log("Collision with: " + collision.gameObject.name);
+        if (!collision.gameObject.CompareTag("deadline"))
         {
-            BrickControl brickControl = collision.gameObject.GetComponent<BrickControl>();
-
-            if (brickControl != null)
+            if (collision.gameObject.CompareTag("player"))
             {
+<<<<<<< HEAD:Assets/Scripts/Ball/Ball.cs
                 brickControl.DestroyBrick();
                 SetDirection(collision);
+=======
+                float hitPoint = collision.contacts[0].point.x;
+                float paddleCenter = collision.transform.position.x;
+                float angle = (hitPoint - paddleCenter) * 2f;
+                ballDirection = new Vector2(Mathf.Sin(angle), Mathf.Cos(angle)).normalized;
+            }
+            else
+            {
+                ballDirection = Vector2.Reflect(ballDirection, collision.contacts[0].normal);
+>>>>>>> JuSung:Assets/Scripts/Ball.cs
             }
         }
-
-        if (collision.gameObject.CompareTag("wall"))
+        else
         {
+<<<<<<< HEAD:Assets/Scripts/Ball/Ball.cs
             SetDirection(collision);
             return;
         }
@@ -60,3 +62,11 @@ public class Ball : MonoBehaviour
         myRigid.velocity = ballDirection * speed;
     }
 }
+=======
+            GameManager.Instance.LostLife();
+            Destroy(this.gameObject);
+        }
+    }
+
+}
+>>>>>>> JuSung:Assets/Scripts/Ball.cs
