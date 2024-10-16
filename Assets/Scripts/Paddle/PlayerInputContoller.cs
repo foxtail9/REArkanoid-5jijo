@@ -1,15 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerInputContoller : PlayerEventManager
+public class PlayerInputContoller : MonoBehaviour
 {
-    Vector2 moveInput;
+    public event Action<Vector2> OnMoveEvent;
+
+    public void CallMoveEvent(Vector2 direction)
+    {
+        OnMoveEvent?.Invoke(direction);
+    }
 
     public void OnMove(InputValue value)
     {
-        moveInput = value.Get<Vector2>();
+        Vector2 moveInput = value.Get<Vector2>();
 
         CallMoveEvent(moveInput);
     }
