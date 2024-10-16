@@ -2,13 +2,25 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
+    Rigidbody2D _rigidbody;
+
     private Vector2 ballDirection;
     private Vector2 ballPos = Vector2.zero;
     private float speed = 5f;
 
+    private void Awake()
+    {
+        _rigidbody = GetComponent<Rigidbody2D>();
+    }
+
     private void Start()
     {
         ballDirection = Vector2.up.normalized;
+    }
+
+    private void FixedUpdate()
+    {
+        _rigidbody.velocity = ballDirection * speed;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
