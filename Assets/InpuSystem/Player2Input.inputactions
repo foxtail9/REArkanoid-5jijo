@@ -6,7 +6,7 @@
             "id": "ad6d079f-d0d0-4515-b8b1-e19f4e0e7608",
             "actions": [
                 {
-                    "name": "Arrow",
+                    "name": "Move",
                     "type": "Value",
                     "id": "088be9ef-d813-45b8-8b9d-8009e42f9d89",
                     "expectedControlType": "Vector2",
@@ -23,7 +23,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Arrow",
+                    "action": "Move",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -34,7 +34,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Arrow",
+                    "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -45,7 +45,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Arrow",
+                    "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 }

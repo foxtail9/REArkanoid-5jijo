@@ -6,7 +6,7 @@
             "id": "5fd55c74-e44d-4e71-bd11-23490bb0dd0a",
             "actions": [
                 {
-                    "name": "AD",
+                    "name": "Move",
                     "type": "Value",
                     "id": "a669b9c6-7ffb-47a1-a121-780c7efbc6e7",
                     "expectedControlType": "Vector2",
@@ -23,7 +23,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "AD",
+                    "action": "Move",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -34,7 +34,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Player1",
-                    "action": "AD",
+                    "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -45,7 +45,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Player1",
-                    "action": "AD",
+                    "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 }
