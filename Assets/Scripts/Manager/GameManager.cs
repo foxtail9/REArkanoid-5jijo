@@ -35,8 +35,6 @@ public class GameManager : MonoBehaviour
         Instantiate(_ball);
 
         Instantiate(_brick);
-
-        // �������� ������ ���� �� ����
     }
 
     // Update is called once per frame
