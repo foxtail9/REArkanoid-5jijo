@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
 
         Instantiate(_brick);
 
-        // ½ºÅ×ÀÌÁö ·¹º§¿¡ µû¸¥ ¸Ê »ý¼º
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     }
 
     // Update is called once per frame
