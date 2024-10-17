@@ -1,49 +1,32 @@
 ﻿using UnityEngine;
 
-public class StageManager : MonoBehaviour
+public  class StageManager : MonoBehaviour
 {
-    public void Stage_1_1()
+    [SerializeField] private GameObject brickPrefab;
+    private int _row;
+    private int _col;
+    private int _space;
+
+    public void GenerateStage(int level)
     {
+        _row = 3 + level;
+        _col = 5;
 
-    }
+        for (int i = 0; i < _row; i++)
+        {
+            for (int j = 0; j < _col; j++)
+            {
+                // 벽돌 생성
+                GameObject brickObject = Instantiate(brickPrefab);
+                Brick brick = brickObject.GetComponent<Brick>();
 
-    public void Stage_1_2()
-    {
+                // 벽돌 색깔 지정
+                string brickColor = "red";
+                brick.Initialize(brickColor);
 
-    }
-
-    public void Stage_1_3()
-    {
-
-    }
-
-    public void Stage_1_4()
-    {
-
-    }
-
-    public void Stage_1_5()
-    {
-
-    }
-
-    public void Stage_1_6()
-    {
-
-    }
-
-    public void Stage_1_7()
-    {
-
-    }
-
-    public void Stage_1_8()
-    {
-
-    }
-
-    public void Stage_1_9()
-    {
-
+                // 벽돌 위치 설정
+                brickObject.transform.position = new Vector3(j * (1 + _space) - 2, i * (0.5f + _space) + 3, 0);
+            }
+        }
     }
 }

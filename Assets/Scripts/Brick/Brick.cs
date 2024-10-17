@@ -1,8 +1,8 @@
+using System;
 using UnityEngine;
 
 public class Brick : MonoBehaviour
 {
-    public string _color;
     private int _armor;
     private int _score;
 
@@ -15,25 +15,30 @@ public class Brick : MonoBehaviour
 
     private void Start()
     {
-        if (_color == "red")
+
+    }
+    
+    internal void Initialize(string brickColor)
+    {
+        if (brickColor == "red")
         {
             this._armor = 1;
             this._score = 3;
             spriteRenderer.color = Color.red;
         }
-        else if (_color == "yellow")
+        else if (brickColor == "yellow")
         {
             this._armor = 2;
             this._score = 7;
             spriteRenderer.color = Color.yellow;
         }
-        else if (_color == "green")
+        else if (brickColor == "green")
         {
             this._armor = 1;
             this._score = 12;
             spriteRenderer.color = Color.green;
         }
-        else if (_color == "purple")
+        else if (brickColor == "purple")
         {
             this._armor = 1;
             this._score = 20;
@@ -56,4 +61,5 @@ public class Brick : MonoBehaviour
             }
         }
     }
+
 }

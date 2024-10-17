@@ -5,6 +5,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    [SerializeField] private GameObject stageManagerPrefab;
+
     [SerializeField] private GameObject _paddle1;
     [SerializeField] private GameObject _paddle2;
     [SerializeField] private GameObject _brick;
@@ -18,6 +20,8 @@ public class GameManager : MonoBehaviour
 
     private int _life = 3;
     private int _score = 0;
+
+    private StageManager stageManager;
 
     private void Awake()
     {
@@ -33,9 +37,16 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        stageManager = Instantiate(stageManagerPrefab).GetComponent<StageManager>();
+
+        // 벽 생성
         Instantiate(_wall);
         Instantiate(_deadline);
 
+        // 벽돌 생성
+        stageManager.GenerateStage(1);
+
+        // 패들 및 공 생성
         Instantiate(_paddle1);
         Instantiate(_ball);
     }
