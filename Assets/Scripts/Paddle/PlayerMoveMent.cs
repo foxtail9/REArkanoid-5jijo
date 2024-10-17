@@ -2,18 +2,18 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private PlayerEventManager playerEventManager;
+    private PlayerInputContoller playerInputContoller;
     private Vector2 movementDirection = Vector2.zero;
     private float _speed = 5f;
 
     private void Awake()
     {
-        playerEventManager = GetComponent<PlayerEventManager>();
+        playerInputContoller = GetComponent<PlayerInputContoller>();
     }
 
     private void Start()
     {
-        playerEventManager.OnMoveEvent += Move;
+        playerInputContoller.OnMoveEvent += Move;
     }
 
     private void Update()
