@@ -34,13 +34,13 @@ public class Brick : MonoBehaviour
         }
         else if (brickColor == "green")
         {
-            this._armor = 1;
+            this._armor = 3;
             this._score = 12;
             spriteRenderer.color = Color.green;
         }
         else if (brickColor == "purple")
         {
-            this._armor = 1;
+            this._armor = 5;
             this._score = 20;
             spriteRenderer.color = new Color(1f, 0f, 1f, 1f);
         }
@@ -50,14 +50,12 @@ public class Brick : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("ball"))
         {
-            if (this._armor == 1)
+            Debug.Log($"Current Armor: {this._armor}");
+            this._armor--;
+            if (this._armor <= 0)
             {
                 GameManager.Instance.AddScore(this._score);
                 Destroy(this.gameObject);
-            }
-            else
-            {
-                this._armor--;
             }
         }
     }

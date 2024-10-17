@@ -22,6 +22,17 @@ public  class StageManager : MonoBehaviour
 
                 // 벽돌 색깔 지정
                 string brickColor = "red";
+                switch (i){
+                    case 0:
+                        brickColor = "purple";
+                        break;
+                    case 1:
+                        brickColor = "green";
+                        break;
+                    case 2:
+                        brickColor = "yellow";
+                        break;
+                }
                 brick.Initialize(brickColor);
 
                 // 벽돌 위치 설정
