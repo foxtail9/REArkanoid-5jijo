@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
     private PlayerEventManager playerEventManager;
     private Vector2 movementDirection = Vector2.zero;
-    [SerializeField] float speed = 5f;
+    private float _speed = 5f;
 
     private void Awake()
     {
@@ -30,6 +28,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void ApplyMovement(Vector2 direction)
     {
-        transform.position += new Vector3(direction.x, direction.y, 0) * speed * Time.deltaTime;
+        transform.position += new Vector3(direction.x, 0, 0) * _speed * Time.deltaTime;
     }
 }
