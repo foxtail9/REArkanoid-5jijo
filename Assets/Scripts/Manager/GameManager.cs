@@ -93,4 +93,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void BrickDestroyed(Vector3 position) //Brick에게 스폰요청
+    {
+        ItemManager.Instance.SpawnItem(position);
+    }
 }

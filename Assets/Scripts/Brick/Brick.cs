@@ -55,6 +55,9 @@ public class Brick : MonoBehaviour
             if (this._armor <= 0)
             {
                 GameManager.Instance.AddScore(this._score);
+
+                GameManager.Instance.BrickDestroyed(transform.position); //GameManager에게 알림
+
                 Destroy(this.gameObject);
             }
         }
