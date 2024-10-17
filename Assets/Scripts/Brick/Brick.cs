@@ -5,6 +5,7 @@ public class Brick : MonoBehaviour
 {
     private int _armor;
     private int _score;
+    private int _takepower;
 
     SpriteRenderer spriteRenderer;
 
@@ -46,12 +47,17 @@ public class Brick : MonoBehaviour
         }
     }
 
+    public void SyncPower()
+    {
+        _takepower = (int)GameManager.Instance.ballpower;
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        SyncPower();
         if (collision.gameObject.CompareTag("ball"))
         {
             Debug.Log($"Current Armor: {this._armor}");
-            this._armor--;
+            this._armor -= _takepower;
             if (this._armor <= 0)
             {
                 GameManager.Instance.AddScore(this._score);

@@ -564,6 +564,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1646116141}
   - component: {fileID: 1646116142}
+  - component: {fileID: 1646116143}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -607,6 +608,21 @@ MonoBehaviour:
   _deadline: {fileID: 6178144336820310691, guid: e2fee3848cefc294691ca5b0a4e6c197, type: 3}
   Life: {fileID: 919517281}
   Score: {fileID: 1156610283}
+--- !u!114 &1646116143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1646116140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 165fed58a83fea14cbee0045ded63a86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerUpPrefab: {fileID: 8816422432657821582, guid: f071496d6382a9f48b41b52a715a110c, type: 3}
+  addBallPrefab: {fileID: 1308827986913754408, guid: b87388cc859db6d44965a934057e340e, type: 3}
+  increasePaddlePrefab: {fileID: 1050702351494646739, guid: a7d09dceb94377645b2140c2b40d3051, type: 3}
 --- !u!1 &1923266145
 GameObject:
   m_ObjectHideFlags: 0

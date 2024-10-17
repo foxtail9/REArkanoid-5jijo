@@ -67,7 +67,7 @@ public class ItemManager : MonoBehaviour
     // 랜덤으로 아이템 타입을 결정하는 함수
     private ItemType GetRandomItemType()
     {
-        float randomValue = Random.Range(0f, 100f);
+        float randomValue = Random.Range(0f, 31f);
         if (randomValue < 10f)
         {
             return ItemType.PowerUp;

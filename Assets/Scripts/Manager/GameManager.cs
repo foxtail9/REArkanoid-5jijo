@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _ball;
     [SerializeField] private GameObject _wall;
     [SerializeField] private GameObject _deadline;
+    [SerializeField] public float ballpower = 1f;
 
     [SerializeField] private Text Life;
     [SerializeField] private Text Score;
