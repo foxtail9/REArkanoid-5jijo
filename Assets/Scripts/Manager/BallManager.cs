@@ -5,7 +5,7 @@ using UnityEngine;
 public class BallManager : MonoBehaviour
 {
     public static BallManager Instance;
-
+    [SerializeField] private GameObject ballPrefab;
     private void Awake()
     {
         Instance = this;
@@ -15,7 +15,6 @@ public class BallManager : MonoBehaviour
     public void IncreaseBallPower()
     {
         // 현재 구슬의 파워 증가 처리
-        Debug.Log("파워업!!");
         GameManager.Instance.ballpower += 1f;
         StartCoroutine(ResetBallPowerAfterTime(10f));
     }
@@ -32,8 +31,14 @@ public class BallManager : MonoBehaviour
     // 추가 구슬을 생성하는 함수
     public void SpawnAdditionalBall()
     {
-        Debug.Log("구슬 증가!");
         // 추가 구슬 생성 로직
-        // Instantiate(ballPrefab, spawnPosition, Quaternion.identity);
+        Instantiate(ballPrefab, GetSpawnPosition(), Quaternion.identity);
+    }
+
+    private Vector3 GetSpawnPosition()
+    {
+        // 현재 패들의 위치를 기준으로 구슬이 떨어질 위치를 설정
+        Vector3 paddlePosition = GameObject.FindGameObjectWithTag("player").transform.position;
+        return new Vector3(paddlePosition.x, paddlePosition.y + 1f, 0); // 패들 위쪽에 스폰
     }
 }
