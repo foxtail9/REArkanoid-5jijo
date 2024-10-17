@@ -12,4 +12,9 @@ public class TestNYChangeSceneController : MonoBehaviour
     {
         SceneManager.LoadScene(scene);
     }
+
+    public void RetryButton()
+    {
+        SceneManager.LoadScene("TestNYMain");
+    }
 }
