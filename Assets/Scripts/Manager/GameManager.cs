@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _paddle2;
     [SerializeField] private GameObject _brick;
     [SerializeField] private GameObject _ball;
+    [SerializeField] private GameObject _wall;
+    [SerializeField] private GameObject _deadline;
 
     [SerializeField] private Text Life;
     [SerializeField] private Text Score;
@@ -31,12 +33,11 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Instantiate(_wall);
+        Instantiate(_deadline);
+
         Instantiate(_paddle1);
         Instantiate(_ball);
-
-        Instantiate(_brick);
-
-        // �������� ������ ���� �� ����
     }
 
     // Update is called once per frame
@@ -44,7 +45,6 @@ public class GameManager : MonoBehaviour
     {
         if (IsClear())
         {
-            Debug.Log("Game Clear");
             Time.timeScale = 0.0f;
         }
     }
@@ -65,7 +65,6 @@ public class GameManager : MonoBehaviour
     {
         this._score += score;
         Score.text = _score.ToString();
-        IsClear();
     }
 
     public void LostLife()
@@ -82,4 +81,5 @@ public class GameManager : MonoBehaviour
             Instantiate(_ball);
         }
     }
+
 }
