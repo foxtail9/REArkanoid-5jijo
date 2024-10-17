@@ -26,14 +26,21 @@ public class Ball : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("Collision with: " + collision.gameObject.name);
+
         if (!collision.gameObject.CompareTag("deadline"))
         {
             if (collision.gameObject.CompareTag("player"))
             {
                 float hitPoint = collision.contacts[0].point.x;
                 float paddleCenter = collision.transform.position.x;
+
                 float angle = (hitPoint - paddleCenter) * 2f;
+
+                angle = Mathf.Clamp(angle, -1.3f, 1.3f);
+
                 ballDirection = new Vector2(Mathf.Sin(angle), Mathf.Cos(angle));
+
+                _rigidbody.velocity = ballDirection * speed;
             }
             else
             {
