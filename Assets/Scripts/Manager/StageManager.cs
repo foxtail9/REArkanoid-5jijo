@@ -5,12 +5,12 @@ public  class StageManager : MonoBehaviour
     [SerializeField] private GameObject brickPrefab;
     private int _row;
     private int _col;
-    private int _space;
+    private float _space = 0.1f;
 
     public void GenerateStage(int level)
     {
         _row = 3 + level;
-        _col = 5;
+        _col = 6;
 
         for (int i = 0; i < _row; i++)
         {
@@ -36,7 +36,7 @@ public  class StageManager : MonoBehaviour
                 brick.Initialize(brickColor);
 
                 // 벽돌 위치 설정
-                brickObject.transform.position = new Vector3(j * (1 + _space) - 2, i * (0.5f + _space) + 3, 0);
+                brickObject.transform.position = new Vector3(j * (0.75f + _space) - 2.1f, -i * (0.25f + _space) + 4, 0);
             }
         }
     }

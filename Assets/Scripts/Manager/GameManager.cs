@@ -17,10 +17,12 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private Text Life;
     [SerializeField] private Text Score;
+    [SerializeField] private Text TimeText;
     //[SerializeField] private GameObject GameOverPanel;
 
     private int _life = 3;
     private int _score = 0;
+    private float _time = 180.0f;
 
     private StageManager stageManager;
 
@@ -55,7 +57,11 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (IsClear())
+        _time -= Time.deltaTime;
+        Score.text = _score.ToString();
+        TimeText.text = _time.ToString("N2");
+
+        if (IsClear() || _time <= 0.0f)
         {
             Time.timeScale = 0.0f;
         }
@@ -64,7 +70,12 @@ public class GameManager : MonoBehaviour
     bool IsClear()
     {
         GameObject[] remain_bricks = GameObject.FindGameObjectsWithTag("brick");
-        return remain_bricks.Length == 0;
+        if(remain_bricks.Length == 0)
+        {
+            _score += (int)_time * 100;
+            return true;
+        }
+        return false;
     }
 
     public void GameOver()
@@ -76,7 +87,6 @@ public class GameManager : MonoBehaviour
     public void AddScore(int score)
     {
         this._score += score;
-        Score.text = _score.ToString();
     }
 
     public void LostLife()
