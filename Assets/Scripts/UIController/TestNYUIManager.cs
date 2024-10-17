@@ -9,11 +9,6 @@ public class TestNYUIManager : MonoBehaviour
     public RectTransform stagePanel;
     public RectTransform stageMainPanel;
 
-    void Start()
-    {
-        stagePanel.DOAnchorPos(Vector2.zero, 0.25f);
-    }
-
     public void StageButton()
     {
         stageMainPanel.DOAnchorPos(new Vector2(-1080, 0), 0.25f);
