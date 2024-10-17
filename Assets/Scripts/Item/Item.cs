@@ -12,4 +12,12 @@ public class Item : MonoBehaviour
         Rigidbody2D rb = gameObject.GetComponent<Rigidbody2D>();
         rb.gravityScale = 1.0f; // 중력 설정
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (!collision.gameObject.CompareTag("deadline"))
+        {
+            Destroy(this.gameObject);
+        }
+    }
 }
