@@ -9,6 +9,7 @@ TagManager:
   - player
   - brick
   - deadline
+  - Item
   layers:
   - Default
   - TransparentFX
