@@ -6,6 +6,8 @@ public class Ball : MonoBehaviour
 
     private Vector2 ballDirection;
     private Vector2 ballPos = Vector2.zero;
+
+    private float _time = 0.0f;
     private float speed = 5f;
 
     private void Start()
@@ -16,6 +18,17 @@ public class Ball : MonoBehaviour
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+    }
+
+    private void Update()
+    {
+        _time += Time.deltaTime;
+        if(_time >= 10.0f)
+        {
+            _time = 0.0f;
+            speed *= 1.05f;
+            Debug.Log(this.speed);
+        }
     }
 
     private void FixedUpdate()
