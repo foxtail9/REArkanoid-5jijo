@@ -25,7 +25,6 @@ public class BallManager : MonoBehaviour
 
         // ballpower를 감소시키는 로직
         GameManager.Instance.ballpower -= 1f; // 증가했던 만큼 감소
-        Debug.Log($"Ball power decreased! Current ballpower: {GameManager.Instance.ballpower}");
     }
 
     // 추가 구슬을 생성하는 함수

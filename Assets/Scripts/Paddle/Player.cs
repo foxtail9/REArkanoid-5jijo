@@ -19,13 +19,11 @@ public class Player : MonoBehaviour
         // 충돌한 오브젝트가 Item인지 확인
         if (collision.CompareTag("Item"))
         {
-            Debug.Log("아이템 받음");
             // 아이템 효과 적용
             Item item = collision.GetComponent<Item>();
 
             if (item != null)
             {
-                Debug.Log("받은 아이템 :" + item.itemType);
                 ApplyItemEffect(item.itemType);
             }
             
