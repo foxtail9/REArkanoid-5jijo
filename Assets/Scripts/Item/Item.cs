@@ -13,11 +13,4 @@ public class Item : MonoBehaviour
         rb.gravityScale = 1.0f; // 중력 설정
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (!collision.gameObject.CompareTag("deadline"))
-        {
-            Destroy(this.gameObject);
-        }
-    }
 }
