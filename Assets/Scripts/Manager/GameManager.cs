@@ -61,6 +61,11 @@ public class GameManager : MonoBehaviour
         Score.text = _score.ToString();
         TimeText.text = _time.ToString("N2");
 
+        if (!IsAlive())
+        {
+            LostLife();
+        }
+
         if (IsClear() || _time <= 0.0f)
         {
             Time.timeScale = 0.0f;
@@ -72,7 +77,7 @@ public class GameManager : MonoBehaviour
         GameObject[] remain_bricks = GameObject.FindGameObjectsWithTag("brick");
         if(remain_bricks.Length == 0)
         {
-            _score += (int)_time * 100;
+            _score += (int)_time * 13;
             _time = 0.0f;
             return true;
         }
@@ -90,19 +95,29 @@ public class GameManager : MonoBehaviour
         this._score += score;
     }
 
+    bool IsAlive()
+    {
+        GameObject[] remain_balls = GameObject.FindGameObjectsWithTag("ball");
+        if (remain_balls.Length > 0)
+            return true;
+        return false;
+    }
+
     public void LostLife()
     {
         _life--;
-        Life.text = _life.ToString();
 
         if (_life < 1)
         {
+            _life = 0;
             GameOver();
         }
         else
         {
             Instantiate(_ball);
         }
+
+        Life.text = _life.ToString();
     }
 
     public void BrickDestroyed(Vector3 position) //Brick에게 스폰요청

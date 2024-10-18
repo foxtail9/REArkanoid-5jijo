@@ -62,7 +62,6 @@ public class Ball : MonoBehaviour
         }
         else
         {
-            GameManager.Instance.LostLife();
             Destroy(this.gameObject);
         }
     }
