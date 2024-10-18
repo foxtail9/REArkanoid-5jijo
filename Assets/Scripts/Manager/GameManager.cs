@@ -73,6 +73,7 @@ public class GameManager : MonoBehaviour
         if(remain_bricks.Length == 0)
         {
             _score += (int)_time * 100;
+            _time = 0.0f;
             return true;
         }
         return false;
