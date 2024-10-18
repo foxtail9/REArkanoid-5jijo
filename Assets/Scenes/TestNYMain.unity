@@ -236,8 +236,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -170, y: 13}
-  m_SizeDelta: {x: 300, y: 0}
+  m_AnchoredPosition: {x: -145, y: 13}
+  m_SizeDelta: {x: 150, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &160964816
 MonoBehaviour:
@@ -850,8 +850,8 @@ MonoBehaviour:
   _deadline: {fileID: 6178144336820310691, guid: e2fee3848cefc294691ca5b0a4e6c197, type: 3}
   ballpower: 1
   Life: {fileID: 1286796510}
-  Score: {fileID: 727861791}
-  TimeText: {fileID: 0}
+  Score: {fileID: 160964817}
+  TimeText: {fileID: 727861791}
 --- !u!4 &478751556
 Transform:
   m_ObjectHideFlags: 0
@@ -2429,8 +2429,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -170, y: -10}
-  m_SizeDelta: {x: 300, y: 0}
+  m_AnchoredPosition: {x: -145, y: -10}
+  m_SizeDelta: {x: 150, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1838861549
 MonoBehaviour:
@@ -2608,8 +2608,8 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1195543274}
+  - {fileID: 478751556}
   - {fileID: 1469865808}
   - {fileID: 90729549}
   - {fileID: 398097150}
   - {fileID: 878098410}
-  - {fileID: 478751556}
