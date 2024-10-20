@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
 {
     private Vector3 originalSize; // 원래 크기를 저장할 변수
     private float maxSize = 3.0f; // 최대 크기 제한
+    public AudioSource audioSource;  // 패들에서 사용할 AudioSource
+    public AudioClip ballCatchSound;  // 구슬 받기 사운드
 
     private void Awake()
     {
@@ -14,6 +16,21 @@ public class Player : MonoBehaviour
         originalSize = transform.localScale;
     }
 
+    private void Start()
+    {
+        // AudioSource가 자동으로 재생되지 않도록 설정
+        if (audioSource != null)
+        {
+            audioSource.playOnAwake = false;
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("ball"))
+        {
+            PlayBallCatchSound();
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // 충돌한 오브젝트가 Item인지 확인
@@ -29,6 +46,15 @@ public class Player : MonoBehaviour
             
             // 아이템 오브젝트 제거
             Destroy(collision.gameObject);
+        }
+
+    }
+
+    void PlayBallCatchSound()
+    {
+        if (audioSource != null && ballCatchSound != null)
+        {
+            audioSource.PlayOneShot(ballCatchSound);
         }
     }
 

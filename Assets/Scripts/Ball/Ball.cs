@@ -7,6 +7,9 @@ public class Ball : MonoBehaviour
     private Vector2 ballDirection;
     private Vector2 ballPos = Vector2.zero;
 
+    public AudioSource audioSource;  // 구슬에서 사용할 AudioSource
+    public AudioClip brickHitSound;  // 벽돌과 충돌 시 사운드
+
     private float _time = 0.0f;
     private float speed = 5f;
 
@@ -38,8 +41,6 @@ public class Ball : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Collision with: " + collision.gameObject.name);
-
         if (!collision.gameObject.CompareTag("deadline"))
         {
             if (collision.gameObject.CompareTag("player"))
@@ -58,6 +59,7 @@ public class Ball : MonoBehaviour
             else
             {
                 ballDirection = Vector2.Reflect(ballDirection, collision.contacts[0].normal);
+                PlayBrickHitSound();
             }
         }
         else
@@ -66,4 +68,11 @@ public class Ball : MonoBehaviour
         }
     }
 
+    void PlayBrickHitSound()
+    {
+        if (audioSource != null && brickHitSound != null)
+        {
+            audioSource.PlayOneShot(brickHitSound);
+        }
+    }
 }

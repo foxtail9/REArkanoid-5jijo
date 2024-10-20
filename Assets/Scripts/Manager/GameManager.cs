@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
     private float _time = 180.0f;
 
     private StageManager stageManager;
+    public AudioSource bgmSource;  // BGM 재생을 위한 AudioSource
+    public AudioClip bgmClip;      // BGM 클립
 
     private void Awake()
     {
@@ -40,6 +42,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        PlayBGM();
         stageManager = Instantiate(stageManagerPrefab).GetComponent<StageManager>();
 
         // 벽 생성
@@ -69,6 +72,16 @@ public class GameManager : MonoBehaviour
         if (IsClear() || _time <= 0.0f)
         {
             Time.timeScale = 0.0f;
+        }
+    }
+
+    void PlayBGM()
+    {
+        if (bgmSource != null && bgmClip != null)
+        {
+            bgmSource.clip = bgmClip;
+            bgmSource.loop = true;  // BGM은 루프될 수 있음
+            bgmSource.Play();
         }
     }
 
