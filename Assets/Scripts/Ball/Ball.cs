@@ -1,62 +1,78 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    [SerializeField] private Rigidbody2D myRigid;
+    [SerializeField] private Rigidbody2D _rigidbody;
 
     private Vector2 ballDirection;
-    [SerializeField] private float speed = 5f;
+    private Vector2 ballPos = Vector2.zero;
 
-    private void Awake()
-    {
-        myRigid = GetComponent<Rigidbody2D>();
-    }
+    public AudioSource audioSource;  // 구슬에서 사용할 AudioSource
+    public AudioClip brickHitSound;  // 벽돌과 충돌 시 사운드
+
+    private float _time = 0.0f;
+    private float speed = 5f;
 
     private void Start()
     {
-        ballDirection = Vector2.up.normalized;
+        ballDirection = Vector2.down.normalized;
+    }
+
+    private void Awake()
+    {
+        _rigidbody = GetComponent<Rigidbody2D>();
+    }
+
+    private void Update()
+    {
+        _time += Time.deltaTime;
+        if(_time >= 10.0f)
+        {
+            _time = 0.0f;
+            speed *= 1.05f;
+            Debug.Log(this.speed);
+        }
     }
 
     private void FixedUpdate()
     {
-        myRigid.velocity = ballDirection * speed;
+        _rigidbody.velocity = ballDirection.normalized * speed;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("brick"))
+        if (!collision.gameObject.CompareTag("deadline"))
         {
-            BrickControl brickControl = collision.gameObject.GetComponent<BrickControl>();
-
-            if (brickControl != null)
+            if (collision.gameObject.CompareTag("player"))
             {
-                brickControl.DestroyBrick();
-                SetDirection(collision);
+                float hitPoint = collision.contacts[0].point.x;
+                float paddleCenter = collision.transform.position.x;
+
+                float angle = (hitPoint - paddleCenter) * 2f;
+
+                angle = Mathf.Clamp(angle, -1.3f, 1.3f);
+
+                ballDirection = new Vector2(Mathf.Sin(angle), Mathf.Cos(angle));
+
+                _rigidbody.velocity = ballDirection * speed;
+            }
+            else
+            {
+                ballDirection = Vector2.Reflect(ballDirection, collision.contacts[0].normal);
+                PlayBrickHitSound();
             }
         }
-
-        if (collision.gameObject.CompareTag("wall"))
+        else
         {
-            SetDirection(collision);
-            return;
-        }
-
-        if (collision.gameObject.CompareTag("player"))
-        {
-            float hitPoint = collision.contacts[0].point.x;
-            float paddleCenter = collision.transform.position.x;
-
-            float angle = (hitPoint - paddleCenter) * 2f;
-
-            SetDirection(collision);
+            Destroy(this.gameObject);
         }
     }
 
-    private void SetDirection(Collision2D collision)
+    void PlayBrickHitSound()
     {
-        ballDirection = Vector2.Reflect(ballDirection, collision.contacts[0].normal);
-        myRigid.velocity = ballDirection * speed;
+        if (audioSource != null && brickHitSound != null)
+        {
+            audioSource.PlayOneShot(brickHitSound);
+        }
     }
 }

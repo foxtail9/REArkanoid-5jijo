@@ -1,21 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private PlayerEventManager playerEventManager;
+    private PlayerInputContoller playerInputContoller;
+    private Rigidbody2D _rigidbody;
+
     private Vector2 movementDirection = Vector2.zero;
-    [SerializeField] float speed = 5f;
+    private float _speed = 5f;
 
     private void Awake()
     {
-        playerEventManager = GetComponent<PlayerEventManager>();
+        playerInputContoller = GetComponent<PlayerInputContoller>();
+        _rigidbody = GetComponent<Rigidbody2D>();
     }
 
     private void Start()
     {
-        playerEventManager.OnMoveEvent += Move;
+        playerInputContoller.OnMoveEvent += Move;
     }
 
     private void Update()
@@ -30,6 +31,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void ApplyMovement(Vector2 direction)
     {
-        transform.position += new Vector3(direction.x, direction.y, 0) * speed * Time.deltaTime;
+        Vector2 velocity = new Vector2(direction.x * _speed, _rigidbody.velocity.y);
+        _rigidbody.velocity = velocity;
+
+        //transform.position += new Vector3(direction.x, 0, 0) * _speed * Time.deltaTime;
     }
 }
