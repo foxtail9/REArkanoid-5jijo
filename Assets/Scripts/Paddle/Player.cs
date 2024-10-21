@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     private float maxSize = 3.0f; // 최대 크기 제한
     public AudioSource audioSource;  // 패들에서 사용할 AudioSource
     public AudioClip ballCatchSound;  // 구슬 받기 사운드
+    public AudioClip itemCatchSound;  // 아이템 받기 사운드
 
     private void Awake()
     {
@@ -43,7 +44,8 @@ public class Player : MonoBehaviour
             {
                 ApplyItemEffect(item.itemType);
             }
-            
+
+            ItemCatchSound();
             // 아이템 오브젝트 제거
             Destroy(collision.gameObject);
         }
@@ -52,10 +54,13 @@ public class Player : MonoBehaviour
 
     private void PlayBallCatchSound()
     {
-        if (audioSource != null && ballCatchSound != null)
-        {
-            audioSource.PlayOneShot(ballCatchSound);
-        }
+        audioSource.PlayOneShot(ballCatchSound);
+    }
+
+    private void ItemCatchSound()
+    {
+        Debug.Log("아이템받기 효과음 재생");
+        audioSource.PlayOneShot(itemCatchSound);
     }
 
     // 아이템 효과 적용 로직
