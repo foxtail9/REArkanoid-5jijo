@@ -774,9 +774,9 @@ MonoBehaviour:
   _deadline: {fileID: 6178144336820310691, guid: e2fee3848cefc294691ca5b0a4e6c197, type: 3}
   ballpower: 1
   Life: {fileID: 1286796510}
-  Score: {fileID: 160964817}
+  Score: {fileID: 1911522442}
   TimeText: {fileID: 727861791}
-  escPanel: {fileID: 0}
+  escPanel: {fileID: 1967586436}
   _time: 180
   bgmSource: {fileID: 478751558}
   bgmClip: {fileID: 0}
@@ -2171,7 +2171,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1571363801
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2189,7 +2189,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -400, y: -20}
-  m_SizeDelta: {x: 200, y: 0}
+  m_SizeDelta: {x: 200, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1571363802
 MonoBehaviour:
@@ -2414,7 +2414,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1838861548
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2432,7 +2432,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -400, y: 30}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 103, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1838861549
 MonoBehaviour:
