@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Brick : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class Brick : MonoBehaviour
     private int _takepower;
 
     SpriteRenderer spriteRenderer;
+    [SerializeField] private GameObject brickScore;
 
     private void Awake()
     {
@@ -17,6 +19,26 @@ public class Brick : MonoBehaviour
     private void Start()
     {
 
+    }
+
+    private void Attacked()
+    {
+        if (this._armor > 3)
+        {
+            spriteRenderer.color = new Color(1f, 0f, 1f, 1f);
+        }
+        else if(this._armor > 2)
+        {
+            spriteRenderer.color = Color.green;
+        }
+        else if(this._armor > 1)
+        {
+            spriteRenderer.color = Color.yellow;
+        }
+        else
+        {
+            spriteRenderer.color = Color.red;
+        }
     }
     
     internal void Initialize(string brickColor)
@@ -51,6 +73,7 @@ public class Brick : MonoBehaviour
     {
         _takepower = (int)GameManager.Instance.ballpower;
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         SyncPower();
@@ -58,11 +81,16 @@ public class Brick : MonoBehaviour
         {
             Debug.Log($"Current Armor: {this._armor}");
             this._armor -= _takepower;
+            Attacked();
+
             if (this._armor <= 0)
             {
                 GameManager.Instance.AddScore(this._score);
 
                 GameManager.Instance.BrickDestroyed(transform.position); //GameManager에게 알림
+
+                Instantiate(brickScore, transform.position, Quaternion.identity);
+                brickScore.GetComponent<Text>().text = $"+ {this._score}";
 
                 Destroy(this.gameObject);
             }

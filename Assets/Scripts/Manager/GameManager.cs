@@ -97,10 +97,12 @@ public class GameManager : MonoBehaviour
         return false;
     }
 
-    public void GameOver()
+    public bool GameOver()
     {
         //GameOverPanel.SetActive(true);
         Time.timeScale = 0.0f;
+
+        return true;
     }
 
     public void AddScore(int score)
@@ -137,4 +139,5 @@ public class GameManager : MonoBehaviour
     {
         ItemManager.Instance.SpawnItem(position);
     }
+
 }

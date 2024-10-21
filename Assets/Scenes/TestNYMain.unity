@@ -852,6 +852,8 @@ MonoBehaviour:
   Life: {fileID: 1286796510}
   Score: {fileID: 160964817}
   TimeText: {fileID: 727861791}
+  bgmSource: {fileID: 0}
+  bgmClip: {fileID: 0}
 --- !u!4 &478751556
 Transform:
   m_ObjectHideFlags: 0
