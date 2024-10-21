@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
         Instantiate(_deadline);
 
         // 벽돌 생성
-        stageManager.GenerateStage(1);
+        stageManager.GenerateStage(2);
 
         // 패들 및 공 생성
         Instantiate(_paddle1);

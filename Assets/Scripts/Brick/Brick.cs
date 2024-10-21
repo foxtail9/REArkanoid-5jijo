@@ -46,7 +46,25 @@ public class Brick : MonoBehaviour
             spriteRenderer.color = new Color(1f, 0f, 1f, 1f);
         }
     }
-
+    private void UpdateColor()
+    {
+        if (_armor == 1)
+        {
+            spriteRenderer.color = Color.red;
+        }
+        else if (_armor == 2)
+        {
+            spriteRenderer.color = Color.yellow;
+        }
+        else if (_armor == 3)
+        {
+            spriteRenderer.color = Color.green;
+        }
+        else if (_armor >= 4)
+        {
+            spriteRenderer.color = new Color(1f, 0f, 1f, 1f); // º¸¶ó»ö
+        }
+    }
     public void SyncPower()
     {
         _takepower = (int)GameManager.Instance.ballpower;
@@ -58,6 +76,9 @@ public class Brick : MonoBehaviour
         {
             Debug.Log($"Current Armor: {this._armor}");
             this._armor -= _takepower;
+
+            UpdateColor();
+
             if (this._armor <= 0)
             {
                 GameManager.Instance.AddScore(this._score);
