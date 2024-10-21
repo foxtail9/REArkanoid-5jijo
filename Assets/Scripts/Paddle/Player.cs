@@ -50,7 +50,7 @@ public class Player : MonoBehaviour
 
     }
 
-    void PlayBallCatchSound()
+    private void PlayBallCatchSound()
     {
         if (audioSource != null && ballCatchSound != null)
         {
