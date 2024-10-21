@@ -89,8 +89,11 @@ public class Brick : MonoBehaviour
 
                 GameManager.Instance.BrickDestroyed(transform.position); //GameManager에게 알림
 
-                Instantiate(brickScore, transform.position, Quaternion.identity);
-                brickScore.GetComponent<Text>().text = $"+ {this._score}";
+                GameObject scoreText = Instantiate(brickScore, transform.position, Quaternion.identity);
+                scoreText.transform.SetParent(GameObject.Find("Canvas").transform, false);
+                Vector3 screenPosition = Camera.main.WorldToScreenPoint(transform.position);
+                scoreText.GetComponent<Transform>().position = screenPosition;
+                scoreText.GetComponent<BrickScore>().SetScore(this._score);
 
                 Destroy(this.gameObject);
             }
