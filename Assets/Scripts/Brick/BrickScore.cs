@@ -1,23 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BrickScore : MonoBehaviour
 {
-    private float _time = 1.0f;
+    private Text _text;
+
+    private void Awake()
+    {
+        _text = GetComponent<Text>();
+    }
 
     private void Start()
     {
-
+        Destroy(this.gameObject, 1.0f);
     }
 
-    void Update()
+    private void Update()
     {
-        _time -= Time.deltaTime;
-        if (_time <= 0.0f)
-        {
-            Destroy(this.gameObject);
-        }
+        this.transform.position += new Vector3(0, 10f, 0) * Time.deltaTime;
+    }
+
+    public void SetScore(int score)
+    {
+        _text.text = $"+ {score}";
     }
 
 }
