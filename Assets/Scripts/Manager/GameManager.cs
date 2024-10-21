@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -19,10 +20,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Text Score;
     [SerializeField] private Text TimeText;
     //[SerializeField] private GameObject GameOverPanel;
+    [SerializeField] private GameObject escPanel;
+
+    private bool isPanelActive = false;
 
     private int _life = 3;
     private int _score = 0;
-    private float _time = 180.0f;
+    public float _time = 180.0f;
 
     private StageManager stageManager;
     public AudioSource bgmSource;  // BGM 재생을 위한 AudioSource
@@ -73,6 +77,39 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = 0.0f;
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ToggleEscPanel();
+        }
+    }
+
+    private void ToggleEscPanel()
+    {
+        isPanelActive = !isPanelActive;       // 패널 상태를 반전
+        escPanel.SetActive(isPanelActive);    // 패널 활성화/비활성화
+
+        // 패널이 활성화되면 게임을 멈추고, 비활성화되면 게임을 이어서 진행
+        if (isPanelActive)
+        {
+            Time.timeScale = 0.0f; // 게임 일시 중지
+        }
+        else
+        {
+            Time.timeScale = 1.0f; // 게임 이어서 진행
+        }
+    }
+
+    public void GoToMainMenu()
+    {
+        Time.timeScale = 1.0f;  // 게임 진행 상태로 되돌리고
+        SceneManager.LoadScene("MainMenu");  // 메인 화면 씬으로 전환
+    }
+
+    // No 버튼을 눌렀을 때 ESC 패널을 닫고 게임을 이어서 진행
+    public void ResumeGame()
+    {
+        ToggleEscPanel(); // 패널을 닫고 게임을 이어서 진행
     }
 
     void PlayBGM()
@@ -85,7 +122,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    bool IsClear()
+    public bool IsClear()
     {
         GameObject[] remain_bricks = GameObject.FindGameObjectsWithTag("brick");
         if(remain_bricks.Length == 0)
@@ -99,6 +136,7 @@ public class GameManager : MonoBehaviour
 
     public bool GameOver()
     {
+        TestNYChangeSceneController.Instance.GameOverScene();
         //GameOverPanel.SetActive(true);
         Time.timeScale = 0.0f;
 

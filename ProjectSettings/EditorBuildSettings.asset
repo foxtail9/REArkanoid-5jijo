@@ -5,9 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/MainScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/TestNYMain.unity
+    guid: d182ab2f92651bc4087ec0e94ed1f409
   - enabled: 1
     path: Assets/Scenes/TestNYTitle.unity
     guid: a430193e90b59024f89fe64f231b4c1d
@@ -15,16 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/TestNYStage.unity
     guid: 1ef1b5fc29cbc0e40a803300c8a2fdca
   - enabled: 1
-    path: Assets/Scenes/TestNYMain.unity
-    guid: d182ab2f92651bc4087ec0e94ed1f409
-  - enabled: 1
-    path: Assets/Scenes/Stage1/TestNYMain 1.unity
-    guid: a2a1eb95120f34b4eba500ad16eb5caf
-  - enabled: 1
-    path: Assets/Scenes/Stage1/TestNYMain 2.unity
-    guid: e23b8d7be4f5d974ea9a20bf2022e2ad
-  - enabled: 1
-    path: Assets/Scenes/Stage1/TestNYMain 3.unity
-    guid: da996b1a39b95394290af10f8abf26e2
-  m_configObjects:
-    com.unity.input.settings: {fileID: 11400000, guid: 0471a0ad309fa2c408f79466b7f1b5e5, type: 2}
+    path: Assets/Scenes/TestNYGameOver.unity
+    guid: fcde4b2a6baa85d43bec21499e3f0b71
+  m_configObjects: {}

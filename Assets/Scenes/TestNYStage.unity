@@ -727,7 +727,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a214e985665ca9a45baf5ea288f72db2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: TestNYMain 1
+  scene: TestNYMain
 --- !u!4 &321934917
 Transform:
   m_ObjectHideFlags: 0
@@ -1828,7 +1828,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0 - 0
+  m_text: 1 - 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 23ed08961146fe24395e2b89b1a6dc63, type: 2}
   m_sharedMaterial: {fileID: 2041266555632550629, guid: 23ed08961146fe24395e2b89b1a6dc63, type: 2}
@@ -1977,7 +1977,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0 - 0
+  m_text: 2 - 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 23ed08961146fe24395e2b89b1a6dc63, type: 2}
   m_sharedMaterial: {fileID: 2041266555632550629, guid: 23ed08961146fe24395e2b89b1a6dc63, type: 2}
@@ -4034,7 +4034,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0 - 0
+  m_text: 3 - 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 23ed08961146fe24395e2b89b1a6dc63, type: 2}
   m_sharedMaterial: {fileID: 2041266555632550629, guid: 23ed08961146fe24395e2b89b1a6dc63, type: 2}

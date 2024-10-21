@@ -9,6 +9,17 @@ public class TestNYChangeSceneController : MonoBehaviour
 {
     [SerializeField] private string scene;
 
+    public static TestNYChangeSceneController Instance;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject); // 씬이 바뀌어도 오브젝트 유지
+        }
+    }
+
     public void ChangeScene()
     {
         SceneManager.LoadScene(scene);
@@ -19,14 +30,15 @@ public class TestNYChangeSceneController : MonoBehaviour
         SceneManager.LoadScene("TestNYMain");
     }
 
-    //public void GameOverScene()
-    //{
-    //    bool over = GameManager.Instance.GameOver();
-    //    if (over)
-    //    {
-    //        SceneManager.LoadScene("TestNYGameOver");
-    //    }
-    //}
+    public void GameOverScene()
+    {
+        ////bool over = GameManager.Instance.GameOver();
+        //if (GameManager.Instance.IsClear() || GameManager.Instance._time <= 0.0f)
+        //{
+        //    SceneManager.LoadScene("TestNYGameOver");
+        //}
+        SceneManager.LoadScene("TestNYGameOver");
+    }
 }
 // title(intro) 씬에 바로 스테이지 선택이 아닌 게임종료 버튼과 스테이지 선택, 설정 버튼이 있는 화면에서 스테이지 버튼을 누르면 스테이지 선택 패널이 활성화
 // 메뉴 추가
