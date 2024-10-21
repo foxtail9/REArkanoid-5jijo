@@ -228,3 +228,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e23b600701b25d498afe9a0f762c518, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
+  ballCatchSound: {fileID: 0}
+  itemCatchSound: {fileID: 0}

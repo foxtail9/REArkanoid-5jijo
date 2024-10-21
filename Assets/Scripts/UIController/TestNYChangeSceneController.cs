@@ -30,6 +30,11 @@ public class TestNYChangeSceneController : MonoBehaviour
         SceneManager.LoadScene("TestNYMain");
     }
 
+    public void GoToTitle()
+    {
+        SceneManager.LoadScene("TestNYTitle");
+    }
+
     public void GameOverScene()
     {
         ////bool over = GameManager.Instance.GameOver();
