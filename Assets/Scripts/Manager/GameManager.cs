@@ -100,12 +100,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void GoToMainMenu()
-    {
-        Time.timeScale = 1.0f;  // 게임 진행 상태로 되돌리고
-        SceneManager.LoadScene("MainMenu");  // 메인 화면 씬으로 전환
-    }
-
     // No 버튼을 눌렀을 때 ESC 패널을 닫고 게임을 이어서 진행
     public void ResumeGame()
     {
