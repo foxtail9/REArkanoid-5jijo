@@ -35,6 +35,21 @@ public class TestNYChangeSceneController : MonoBehaviour
         SceneManager.LoadScene("TestNYTitle");
     }
 
+    //public void Stage1()
+    //{
+    //    SceneManager.LoadScene("TestNYMain 1");
+    //}
+
+    //public void Stage2()
+    //{
+    //    SceneManager.LoadScene("TestNYMain 2");
+    //}
+
+    //public void Stage3()
+    //{
+    //    SceneManager.LoadScene("TestNYMain 3");
+    //}
+
     public void GameOverScene()
     {
         ////bool over = GameManager.Instance.GameOver();

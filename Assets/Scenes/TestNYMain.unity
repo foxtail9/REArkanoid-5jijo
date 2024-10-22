@@ -776,7 +776,7 @@ MonoBehaviour:
   Life: {fileID: 1286796510}
   Score: {fileID: 1911522442}
   TimeText: {fileID: 727861791}
-  escPanel: {fileID: 0}
+  escPanel: {fileID: 1169186315}
   _time: 180
   bgmSource: {fileID: 478751558}
   bgmClip: {fileID: 0}
@@ -1408,10 +1408,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 478751555}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: ResumeGame
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
